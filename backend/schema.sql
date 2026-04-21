@@ -1,0 +1,15 @@
+IF OBJECT_ID(N'dbo.Donations', N'U') IS NULL
+BEGIN
+  CREATE TABLE dbo.Donations
+  (
+    Id INT IDENTITY(1,1) PRIMARY KEY,
+    TxHash NVARCHAR(100) NOT NULL UNIQUE,
+    Donor NVARCHAR(42) NOT NULL,
+    AmountEth DECIMAL(38,18) NOT NULL,
+    Message NVARCHAR(4000) NULL,
+    ChainId INT NULL,
+    ContractAddress NVARCHAR(42) NOT NULL,
+    BlockTimestamp BIGINT NULL,
+    CreatedAt DATETIME2 NOT NULL DEFAULT SYSUTCDATETIME()
+  );
+END;

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crypto Donation Tracker</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="card">
+      <h1>Crypto Donation Tracker</h1>
+      <p class="subtitle">Real-time ETH donations via Ganache + MetaMask</p>
+      <div class="wallet-row">
+        <button id="connectBtn">Connect MetaMask</button>
+        <span id="walletStatus">Wallet not connected</span>
+      </div>
+    </header>
+
+    <section class="card">
+      <h2>Send Donation</h2>
+      <form id="donationForm">
+        <label for="amount">Amount (ETH)</label>
+        <input id="amount" type="number" step="0.0001" min="0.0001" placeholder="0.01" required />
+
+        <label for="message">Message (optional)</label>
+        <input id="message" type="text" maxlength="120" placeholder="Great project!" />
+
+        <button type="submit" id="donateBtn">Donate</button>
+      </form>
+      <p id="formStatus" class="status"></p>
+    </section>
+
+    <section class="card">
+      <div class="totals-row">
+        <h2>Live Donations</h2>
+        <span id="totalDonated">Total donated: 0 ETH</span>
+      </div>
+      <ul id="donationsList" class="donation-list"></ul>
+    </section>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/ethers@6.13.2/dist/ethers.umd.min.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
